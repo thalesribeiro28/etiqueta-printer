@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Box, Typography, Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import { LabelTemplate, LabelData } from '../types';
-import mazarroLogo from '../assets/mazarro.png';
 
 interface LabelPreviewProps {
   data: LabelData[];
@@ -86,7 +85,6 @@ const DraggableField: React.FC<DraggableFieldProps> = ({ field, value, position,
 
 const LabelPreview: React.FC<LabelPreviewProps> = ({ data, template, onTemplateChange }) => {
   const [selectedItem, setSelectedItem] = useState<LabelData | null>(null);
-  const printFrameRef = useRef<HTMLIFrameElement>(null);
 
   const handleFieldDrag = (field: keyof Omit<LabelTemplate, 'width' | 'height'>, x: number, y: number) => {
     const xMm = Math.max(0, Math.min(template.width, x / 3.78));
