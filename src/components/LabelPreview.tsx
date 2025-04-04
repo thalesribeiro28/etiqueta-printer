@@ -160,7 +160,7 @@ const LabelPreview: React.FC<LabelPreviewProps> = ({ data, template, onTemplateC
           </style>
         </head>
         <body>
-          ${data.map((item, index) => `
+          ${data.map(item => `
             <div class="label-container">
               ${(['codigo', 'produto', 'valor'] as const).map(field => `
                 <div class="label-field" style="
@@ -190,22 +190,6 @@ const LabelPreview: React.FC<LabelPreviewProps> = ({ data, template, onTemplateC
       setTimeout(() => {
         const win = iframe.contentWindow;
         if (win) {
-          // Configurar opções de impressão
-          const printOptions = {
-            silent: false,
-            printBackground: true,
-            deviceWidth: template.width + 'mm',
-            deviceHeight: template.height + 'mm',
-            pageSize: {
-              width: template.width + 'mm',
-              height: template.height + 'mm'
-            },
-            margins: {
-              marginType: 'none'
-            },
-            displayHeaderFooter: false
-          };
-
           win.print();
         }
         document.body.removeChild(iframe);
