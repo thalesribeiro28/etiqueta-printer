@@ -5,6 +5,7 @@ import LabelEditor from './components/LabelEditor';
 import LabelPreview from './components/LabelPreview';
 import { LabelTemplate } from './types';
 import mazarroLogo from './assets/mazarro.png';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [data, setData] = useState<any[]>([]);
